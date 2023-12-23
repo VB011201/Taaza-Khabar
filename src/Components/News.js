@@ -12,7 +12,10 @@ export class News extends Component {
     };
   }
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=805e49bf6ffe44e3b79a98b2b59de878&page=${this.state.page}&pageSize=${pageSize}`;
+    const {country,pageSize,category} = this.props;
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f3dc06408822401ebe85bd67d79966c1&page=${
+      this.state.page
+    }&pageSize=${pageSize}`;
     this.setState({
       spinner: true,
     });
@@ -25,7 +28,7 @@ export class News extends Component {
     });
   }
   handleNextClick = async (category,pageSize,country) => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=805e49bf6ffe44e3b79a98b2b59de878&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f3dc06408822401ebe85bd67d79966c1&page=${
       this.state.page + 1
     }&pageSize=${pageSize}`;
     this.setState({
@@ -40,7 +43,7 @@ export class News extends Component {
     });
   };
   handlePrevClick = async (category,pageSize,country) => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=805e49bf6ffe44e3b79a98b2b59de878&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f3dc06408822401ebe85bd67d79966c1&page=${
       this.state.page - 1
     }&pageSize=${pageSize}`;
     this.setState({
@@ -55,7 +58,7 @@ export class News extends Component {
     });
   };
   render() {
-    const {country,pageSize,category} = this.props.match.params;
+    const {country,pageSize,category} = this.props;
     return (
       <>
         <div className="container my-3">
@@ -82,7 +85,7 @@ export class News extends Component {
               disabled={this.state.page <= 1 ? true : false}
               type="button"
               className="btn btn-dark"
-              onClick={this.handlePrevClick(category,pageSize,country)}
+              onClick={() => this.handlePrevClick({ category, country, pageSize })}
               >
               &#8592; Previous
             </button>
@@ -90,7 +93,7 @@ export class News extends Component {
               type="button"
               id="next"
               className="btn btn-dark"
-              onClick={this.handleNextClick(category,pageSize,country)}
+              onClick={() => this.handleNextClick({ category, country, pageSize })}
               disabled={
                 Math.ceil(this.state.totalData / pageSize) < (this.state.page + 1)
               }

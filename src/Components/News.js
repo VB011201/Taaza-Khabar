@@ -27,7 +27,7 @@ export class News extends Component {
       spinner: false,
     });
   }
-  handleNextClick = async (category,pageSize,country) => {
+  handleNextClick = async (category, country, pageSize ) => {
     let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f3dc06408822401ebe85bd67d79966c1&page=${
       this.state.page + 1
     }&pageSize=${pageSize}`;
@@ -42,7 +42,7 @@ export class News extends Component {
       spinner: false,
     });
   };
-  handlePrevClick = async (category,pageSize,country) => {
+  handlePrevClick = async (category, country, pageSize ) => {
     let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=f3dc06408822401ebe85bd67d79966c1&page=${
       this.state.page - 1
     }&pageSize=${pageSize}`;

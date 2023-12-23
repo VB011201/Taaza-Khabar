@@ -5,11 +5,11 @@ export class NewsItem extends Component {
     let { title, description, imageUrl, detailUrl, dateTime, author,source } =
       this.props;
     return (
-      <div className="card"  style={{ width: "30rem" }}>
+      <div className="card" >
         <span className="position-absolute top-0 translate-middle badge rounded-pill bg-success" style={{left:"80%" , zIndex:'1'}}>
           {source}
         </span>
-        <img
+        <img style={{height:"20rem"}}
           src={
             imageUrl
               ? imageUrl

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Loading from "./Loading";
+import Header from "./Header";
 
 export class News extends Component {
   constructor() {
@@ -58,10 +59,11 @@ export class News extends Component {
     });
   };
   render() {
-    const {country,pageSize,category} = this.props;
+    const {country,pageSize,category,title} = this.props;
     return (
       <>
         <div className="container my-3">
+         <Header title={title}/>
           {this.state.spinner && <Loading />}
           {!this.state.spinner && <> <div className="row">
             {this.state.articles.map((element) => {
@@ -75,6 +77,9 @@ export class News extends Component {
                     description={element.description}
                     imageUrl={element.urlToImage}
                     detailUrl={element.url}
+                    dateTime ={element.publishedAt}
+                    author = {element.author}
+                    source = {element.source.name}
                     />
                 </div>
               );
@@ -85,7 +90,7 @@ export class News extends Component {
               disabled={this.state.page <= 1 ? true : false}
               type="button"
               className="btn btn-dark"
-              onClick={() => this.handlePrevClick({ category, country, pageSize })}
+              onClick={() => this.handlePrevClick(category, country, pageSize)}
               >
               &#8592; Previous
             </button>
@@ -93,7 +98,7 @@ export class News extends Component {
               type="button"
               id="next"
               className="btn btn-dark"
-              onClick={() => this.handleNextClick({ category, country, pageSize })}
+              onClick={() => this.handleNextClick(category, country, pageSize)}
               disabled={
                 Math.ceil(this.state.totalData / pageSize) < (this.state.page + 1)
               }

@@ -4,7 +4,7 @@ Apart from the headlines if you are intrested to see the detailed news you can a
 
 ### Main Page
 
-![MainPage](../class_based_newsapp/public/MainPage.png)
+![MainPage]([../class_based_newsapp/public/MainPage.png](https://github.com/VB011201/class_based_newsapp/blob/master/public/MainPage.png))
 
 ### Navigation Buttons
 

@@ -7,6 +7,6 @@ Apart from the headlines if you are intrested to see the detailed news you can a
 ![MainPage](https://github.com/VB011201/class_based_newsapp/blob/master/public/MainPage.png)
 
 ### Navigation Buttons
-
 - The "Home" button will take you back to the next and previous, displaying the latest news headlines.
-  ![Navigation Buttons](https://github.com/VB011201/class_based_newsapp/blob/master/public/Navigation.png)
+![Navigation Buttons](https://github.com/VB011201/class_based_newsapp/blob/master/public/Navigation.png)
+

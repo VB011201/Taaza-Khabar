@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 
 export default class App extends Component {
-  pageSize_ = 12
+  pageSize_ = 12;
+  apiKey = process.env.REACT_APP_NEWS_API;
 state ={
   progress:0
 }
@@ -28,25 +29,25 @@ this.setState({
            <Route  
            exact path="/"
            element={
-           <News progress = {this.setProgress} key = "general" category="general" pageSize={this.pageSize_} country="in" title="Top Headlines"/>}/>
+           <News progress = {this.setProgress} apiKey = {this.apiKey} key = "general" category="general" pageSize={this.pageSize_} country="in" title="Top Headlines"/>}/>
            <Route 
            exact path="/business"
-           element={<News progress = {this.setProgress} key = "business" category="business" pageSize={this.pageSize_} country="in" title="Top Business Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "business" category="business" pageSize={this.pageSize_} country="in" title="Top Business Headlines"/>}/>
            <Route  
            exact path="/sports"
-           element={<News progress = {this.setProgress} key = "sports" category="sports" pageSize={this.pageSize_} country="in" title="Top Sports Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "sports" category="sports" pageSize={this.pageSize_} country="in" title="Top Sports Headlines"/>}/>
            <Route  
            exact path="/technology"
-           element={<News progress = {this.setProgress} key = "technology" category="technology" pageSize={this.pageSize_} country="in" title="Top Technology Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "technology" category="technology" pageSize={this.pageSize_} country="in" title="Top Technology Headlines"/>}/>
            <Route  
            exact path="/entertainment"
-           element={<News progress = {this.setProgress} key = "entertainment" category="entertainment" pageSize={this.pageSize_} country="in" title="Top Entertainment Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "entertainment" category="entertainment" pageSize={this.pageSize_} country="in" title="Top Entertainment Headlines"/>}/>
            <Route  
            exact path="/health"
-           element={<News progress = {this.setProgress} key = "health" category="health" pageSize={this.pageSize_} country="in" title="Top Health Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "health" category="health" pageSize={this.pageSize_} country="in" title="Top Health Headlines"/>}/>
            <Route  
            exact path="/science"
-           element={<News progress = {this.setProgress} key = "science" category="science" pageSize={this.pageSize_} country="in" title="Top Science Headlines"/>}/>
+           element={<News progress = {this.setProgress} apiKey = {this.apiKey} key = "science" category="science" pageSize={this.pageSize_} country="in" title="Top Science Headlines"/>}/>
           </Routes>
         </div>
         </Router>

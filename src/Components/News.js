@@ -13,8 +13,8 @@ export class News extends Component {
       totalData: 0,
     };
   }
-  fetchMoreData = async (category, country, pageSize) => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=805e49bf6ffe44e3b79a98b2b59de878&page=${this.state.page}&pageSize=${pageSize}`;
+  fetchMoreData = async (category, country, pageSize,apiKey) => {
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${pageSize}`;
     let art = await fetch(url);
     let parsedArt = await art.json();
     this.setState({
@@ -24,9 +24,9 @@ export class News extends Component {
     });
   };
   async componentDidMount() {
-    const { country, pageSize, category, progress } = this.props;
+    const { country, pageSize, category, progress,apiKey } = this.props;
     progress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=805e49bf6ffe44e3b79a98b2b59de878&page=${this.state.page}&pageSize=${pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${pageSize}`;
     // this.setState({
     //   spinner: true,
     // });
@@ -81,7 +81,7 @@ export class News extends Component {
   //   progress(100);
   // };
   render() {
-    const { country, pageSize, category, title } = this.props;
+    const { country, pageSize, category, title,apiKey } = this.props;
     return (
       <>
         <div className="container my-3">
@@ -90,7 +90,7 @@ export class News extends Component {
           <InfiniteScroll
             dataLength={this.state.articles.length}
             hasMore={this.state.articles.length !== this.state.totalData}
-            next={() => this.fetchMoreData(category, country, pageSize)}
+            next={() => this.fetchMoreData(category, country, pageSize,apiKey)}
             loader={<Loading />}
           >
             <div className="container row">

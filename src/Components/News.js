@@ -35,7 +35,7 @@ export class News extends Component {
     let parsedArt = await art.json();
     progress(60);
     this.setState({
-      articles: parsedArt.articles,
+      articles: this.state.articles.concat(parsedArt.articles),
       totalData: parsedArt.totalResults,
       // spinner: false,
       page: this.state.page + 1,
@@ -84,8 +84,8 @@ export class News extends Component {
     const { country, pageSize, category, title,apiKey } = this.props;
     return (
       <>
-        <div className="container my-3">
           <Header title={title} />
+        <div className="container my-3">
           {/* {this.state.spinner && <Loading />} */}
           <InfiniteScroll
             dataLength={this.state.articles.length}

@@ -9,8 +9,8 @@ Also added infinite scroll capabilities to the application.
 ![MainPage](https://github.com/VB011201/class_based_newsapp/blob/master/public/MainPage.png)
 
 ### How to use
-Make and account on ![](https://newsapi.org) and get your API Key. Replace the API key in app.js
+Make and account on [News API](https://newsapi.org) and get your API Key. Replace the API key in app.js
 
-run  
-### npm install
-### npm start
+### Run  
+## npm install
+## npm start
